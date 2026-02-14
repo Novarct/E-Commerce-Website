@@ -14,7 +14,7 @@ import { applyAllFilters } from './search-filter.js';
 export const toggleFavorites = (productId) => {
     const added = WishlistService.toggleFavorites(productId);
 
-    if (added !== undefined) {
+    if (added !== null) {
         import('./wishlist-panel.js').then(({ updateWishlistUI }) => updateWishlistUI());
         applyAllFilters();
 
