@@ -1,0 +1,18 @@
+/* ══════════════════════════════════════════════════════════════════════════════
+   Z-INDEX HIERARCHY SYSTEM
+   Centralized z-index values to prevent stacking conflicts
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+:root {
+    /* Z-Index Hierarchy (Lowest to Highest) */
+    --z-base: 1;
+    --z-dropdown: 10;
+    --z-sticky: 100;
+    --z-navbar: 1000;
+    --z-panel-overlay: 9999;
+    --z-modal-overlay: 9999;
+    --z-panel-content: 10000;
+    --z-modal-content: 10000;
+    --z-notification: 10001;
+    --z-tooltip: 10002;
+}

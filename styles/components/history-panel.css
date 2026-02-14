@@ -1,0 +1,64 @@
+/* ══════════════════════════════════════════════════════════════════════════════
+   HISTORY PANEL STYLES
+   History-specific panel styles and components
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* History Panel Positioning (Right Slide) */
+.history-panel {
+    right: 0;
+    transform: translateX(100%);
+    border-left: 1px solid var(--glass-border);
+    box-shadow: -0.625rem 0 1.875rem rgba(0, 0, 0, 0.1);
+}
+
+.history-panel.show {
+    transform: translateX(0);
+}
+
+/* Order History */
+.order-history-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.order-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    max-height: 18.75rem;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.order-card {
+    background: var(--bg-surface-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.8rem;
+    padding: 1.5rem;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.order-items {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.order-total {
+    font-size: 1.2rem;
+    color: var(--text-main);
+    text-align: right;
+}

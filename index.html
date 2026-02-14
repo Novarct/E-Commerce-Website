@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÆTHER FORGE</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body id="top">
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         HEADER SECTION
+         Navigation · Search · User Utilities · Theme Toggle
+         ════════════════════════════════════════════════════════════════════ -->
+    <header id="header">
+        <div class="top-bar" id="language">
+            <div class="container">
+                <a href="#" class="top-bar-link" data-modal="support-modal" data-i18n="support">Support</a>
+                <span>|</span>
+                <a href="#" class="top-bar-link" data-modal="language-modal" id="language-link"><span
+                        data-i18n="language">Language</span>: <span id="current-lang">English</span></a>
+                <span>|</span>
+                <a href="#" class="top-bar-link" data-modal="currency-modal"><span data-i18n="currency">Currency</span>:
+                    <span id="current-currency">USD</span></a>
+                <span>|</span>
+                <button id="theme-toggle" class="top-bar-link" aria-label="Toggle Dark Mode"><i
+                        class="fas fa-moon"></i></button>
+            </div>
+        </div>
+        <div class="middle-bar" id="currency">
+            <div class="container">
+                <div class="logo">
+                    <img src="logo6.png" alt="ÆTHER Logo" class="logo-img" id="logo-light">
+                    <img src="logo7.png" alt="ÆTHER Logo" class="logo-img" id="logo-dark" style="display: none;">
+                    <a href="#top">ÆTHER FORGE</a>
+                </div>
+                <form class="search-container" id="search-form">
+                    <input type="text" id="search-input" placeholder="Search for products..." autocomplete="off">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+                <div class="user-utilities">
+                    <a href="#account" id="account-link" aria-label="Account">
+                        <div class="utility-icon-wrapper">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </a>
+                    <a href="#history" id="history-link" aria-label="History">
+                        <div class="utility-icon-wrapper">
+                            <i class="fas fa-clock-rotate-left"></i>
+                            <span class="history-count">0</span>
+                        </div>
+                    </a>
+                    <a href="#wishlist" id="wishlist-link" class="wishlist-link" aria-label="Wishlist">
+                        <div class="utility-icon-wrapper">
+                            <i class="far fa-heart"></i>
+                            <span class="wishlist-count">0</span>
+                        </div>
+                    </a>
+                    <a href="#cart" id="cart-link" class="cart-link" aria-label="Cart">
+                        <div class="utility-icon-wrapper">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </div>
+                        <span class="cart-total">$0.00</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <nav class="bottom-bar">
+            <div class="container">
+                <ul>
+                    <li><a href="#products" class="category-filter active" data-category="All"><i
+                                class="fas fa-th-large"></i> <span data-i18n="all">All</span></a></li>
+                    <li><a href="#products" class="category-filter" data-category="Motherboards"><i
+                                class="fas fa-columns"></i> <span data-i18n="motherboards">Motherboards</span></a>
+                    </li>
+                    <li><a href="#products" class="category-filter" data-category="CPUs"><i
+                                class="fas fa-microchip"></i>
+                            <span data-i18n="cpus">CPUs</span></a></li>
+                    <li><a href="#products" class="category-filter" data-category="RAMs"><i class="fas fa-memory"></i>
+                            <span data-i18n="rams">RAMs</span></a></li>
+                    <li><a href="#products" class="category-filter" data-category="GPUs"><i class="fas fa-gamepad"></i>
+                            <span data-i18n="gpus">GPUs</span></a></li>
+                    <li><a href="#products" class="category-filter" data-category="PSUs"><i class="fas fa-plug"></i>
+                            <span data-i18n="psus">PSUs</span></a></li>
+                    <li><a href="#products" class="category-filter" data-category="Cooling"><i class="fas fa-fan"></i>
+                            <span data-i18n="cooling">Cooling</span></a></li>
+                    <li><a href="#products" class="category-filter" data-category="Cases"><i class="fas fa-cube"></i>
+                            <span data-i18n="cases">Cases</span></a></li>
+                    <li><a href="#products" class="category-filter" data-category="Pre-builts"><i
+                                class="fas fa-desktop"></i> <span data-i18n="prebuilts">Pre-builts</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         HERO SECTION
+         Carousel · Flash Sale Bar · Hero Slides
+         ════════════════════════════════════════════════════════════════════ -->
+    <section id="hero" class="hero-section">
+        <div class="flash-sale-bar">
+            <div class="container" style="justify-content: center; gap: 0.5rem;">
+                <span data-i18n="flashSale">Limited Time Offer: Ends in</span> <span
+                    id="countdown-timer">24:00:00</span>
+            </div>
+        </div>
+
+        <!-- Hero Carousel Container -->
+        <div class="hero-carousel">
+            <!-- Slide 1: Main Banner -->
+            <div class="hero-slide active">
+                <div class="hero-content">
+                    <h1 data-i18n="heroTitle">UNLEASH THE ÆTHER</h1>
+                    <p data-i18n="heroSub">Next-Gen Hardware. Elite Performance. Pre-built rigs & custom parts.</p>
+                    <button class="hero-btn" data-i18n="shopNow">Shop Now</button>
+                </div>
+            </div>
+
+            <!-- Slide 2: GPU Focus -->
+            <div class="hero-slide">
+                <div class="hero-content">
+                    <h1 data-i18n="heroTitle2">ULTIMATE GRAPHICS POWER</h1>
+                    <p data-i18n="heroSub2">RTX 4090 & RX 7900 XTX. Experience gaming at its peak.</p>
+                    <button class="hero-btn" data-i18n="exploreGPUs">Explore GPUs</button>
+                </div>
+            </div>
+
+            <!-- Slide 3: Pre-builts -->
+            <div class="hero-slide">
+                <div class="hero-content">
+                    <h1 data-i18n="heroTitle3">READY TO DOMINATE</h1>
+                    <p data-i18n="heroSub3">Premium pre-built gaming PCs. Plug in and play.</p>
+                    <button class="hero-btn" data-i18n="viewBuilds">View Builds</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="hero-nav">
+            <button class="hero-nav-btn prev" aria-label="Previous slide">‹</button>
+            <button class="hero-nav-btn next" aria-label="Next slide">›</button>
+        </div>
+
+        <!-- Slide Indicators -->
+        <div class="hero-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         BRAND TRUST BAR
+         Partner Logos
+         ════════════════════════════════════════════════════════════════════ -->
+    <section id="partners" class="brand-trust-bar">
+        <div class="container">
+            <h4 data-i18n="elitePartners">OUR ELITE PARTNERS</h4>
+            <div class="brand-logos">
+                <img src="https://cdn.simpleicons.org/asus" alt="Asus">
+                <img src="https://cdn.simpleicons.org/nvidia" alt="Nvidia">
+                <img src="https://cdn.simpleicons.org/intel" alt="Intel">
+                <img src="https://cdn.simpleicons.org/amd" alt="AMD">
+                <img src="https://cdn.simpleicons.org/corsair" alt="Corsair">
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         PRODUCTS SECTION
+         Filters Sidebar · Product Grid · Sort Controls
+         ════════════════════════════════════════════════════════════════════ -->
+    <div id="products" class="main-content-area">
+        <h2 class="section-title" data-i18n="ourProducts">OUR PRODUCTS</h2>
+
+        <div class="sidebar-layout-axis">
+            <aside class="filters-sidebar" id="filters-sidebar">
+                <div class="sort-container">
+                    <h3 data-i18n="sortBy">Sort By</h3>
+                    <!-- Custom Sort Dropdown -->
+                    <div class="custom-dropdown" id="custom-sort">
+                        <div class="dropdown-trigger" id="sort-trigger">
+                            <span id="current-sort-label" data-i18n="newest">Newest</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <ul class="dropdown-options" id="sort-options">
+                            <li data-value="newest" class="active" data-i18n="newest">Newest</li>
+                            <li data-value="price-low" data-i18n="priceLowHigh">Price: Low to High</li>
+                            <li data-value="price-high" data-i18n="priceHighLow">Price: High to Low</li>
+                            <li data-value="name-az" data-i18n="nameAZ">Name: A-Z</li>
+                        </ul>
+                        <input type="hidden" id="product-sort" value="newest">
+                    </div>
+                </div>
+                <h3 data-i18n="filterByBrand">Filter by Brand</h3>
+                <ul class="brand-filters">
+                    <li><label><input type="checkbox" class="brand-filter" value="Asus"> Asus</label></li>
+                    <li><label><input type="checkbox" class="brand-filter" value="Nvidia"> Nvidia</label></li>
+                    <li><label><input type="checkbox" class="brand-filter" value="AMD"> AMD</label></li>
+                    <li><label><input type="checkbox" class="brand-filter" value="Intel"> Intel</label></li>
+                    <li><label><input type="checkbox" class="brand-filter" value="Corsair"> Corsair</label></li>
+                    <li><label><input type="checkbox" class="brand-filter" value="NZXT"> NZXT</label></li>
+                </ul>
+                <!-- Sidebar history removed as it's now a bottom tray -->
+
+            </aside>
+
+            <div class="product-grid-wrapper">
+                <main id="product-grid" class="product-grid">
+                    <!-- Products will be injected here by JavaScript -->
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         MODALS & OVERLAYS SECTION
+         Authentication · Profile · Quick View · Cart · Wishlist · History
+         ════════════════════════════════════════════════════════════════════ -->
+
+    <!-- Authentication Modal -->
+    <div id="auth-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 id="auth-modal-title">Login Required</h2>
+            <p id="auth-modal-text">You need to be logged in to add items to your cart.</p>
+            <div class="modal-buttons">
+                <button type="button" id="tab-login" class="login-btn">Login</button>
+                <button type="button" id="tab-signup" class="signup-btn">Sign Up</button>
+            </div>
+            <form id="login-form" class="login-form" action="#">
+                <div id="signup-fields" class="hidden">
+                    <input type="text" id="signup-username" placeholder="Username">
+                </div>
+                <input type="email" id="auth-email" placeholder="Email Address" required>
+                <input type="password" id="auth-password" placeholder="Password" required>
+                <div id="confirm-password-field" class="hidden">
+                    <input type="password" id="auth-confirm-password" placeholder="Confirm Password">
+                </div>
+                <button type="submit" class="add-to-cart-btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div id="quick-view-modal" class="modal-overlay hidden">
+        <div class="modal-content qv-content">
+            <button class="close-modal">&times;</button>
+            <div class="qv-body">
+                <div class="qv-image-container">
+                    <img id="qv-image" src="" alt="Product Image">
+                </div>
+                <div class="qv-details">
+                    <span id="qv-brand" class="product-brand"></span>
+                    <h2 id="qv-name"></h2>
+                    <div class="rating-stars qv-rating"></div>
+                    <p id="qv-price" class="product-price"></p>
+                    <span id="qv-discount" class="deal-badge qv-badge"></span>
+                    <p id="qv-description"></p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                    <div class="qv-related-section" style="display:none;">
+                        <h4 data-i18n="relatedProducts">Related Products</h4>
+                        <div id="qv-related-products" class="qv-related-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Off-canvas Panel -->
+    <div id="cart" class="cart-panel">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-products" id="cart-products">
+            <div class="cart-empty">
+                <p data-i18n="emptyCart">Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <span id="cart-subtotal-price">$0.00</span>
+            </div>
+            <button class="add-to-cart-btn checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+    <div id="cart-overlay" class="cart-overlay"></div>
+
+
+    <!-- Wishlist & Favorites Panel -->
+    <div id="wishlist" class="wishlist-panel">
+        <div class="wishlist-header">
+            <h3 data-i18n="myPreferences">My Preferences</h3>
+            <button class="close-wishlist">&times;</button>
+        </div>
+        <div class="wishlist-content">
+            <div class="wishlist-section">
+                <h4 data-i18n="myFavorites">My Favorites</h4>
+                <div id="favorites-products" class="wishlist-products">
+                    <div class="favorites-empty">
+                        <p data-i18n="emptyFavorites">Your favorites list is empty</p>
+                    </div>
+                </div>
+            </div>
+            <div class="wishlist-divider" style="margin: 2rem 0; border-top: 1px solid var(--border-color);"></div>
+            <div class="wishlist-section">
+                <h4 data-i18n="myWishlist">My Wishlist</h4>
+                <div id="wishlist-products" class="wishlist-products">
+                    <div class="wishlist-empty">
+                        <p data-i18n="emptyWishlist">Your wishlist is empty</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="wishlist-overlay" class="wishlist-overlay"></div>
+
+    <!-- Account Modal -->
+    <div id="account-modal" class="modal-overlay hidden">
+        <div class="modal-content account-modal-content">
+            <button class="close-modal close-account">&times;</button>
+            <div class="account-modal-header">
+                <h2>My Account</h2>
+            </div>
+
+            <div class="account-profile-card">
+                <div class="account-avatar-section">
+                    <div class="account-avatar-wrapper">
+                        <img id="account-avatar-img" src="" alt="Avatar" class="account-avatar-image"
+                            style="display: none;">
+                        <i id="account-avatar-icon" class="fas fa-user-circle account-avatar-icon"></i>
+                        <div class="avatar-upload-btn" onclick="document.getElementById('avatar-upload').click()">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <input type="file" id="avatar-upload" hidden accept="image/*">
+                    </div>
+                </div>
+                <div class="account-profile-info">
+                    <h3 class="account-username">User</h3>
+                    <p class="account-email">user@example.com</p>
+                    <div class="account-elite-badge">Elite Member</div>
+                </div>
+            </div>
+
+            <div class="account-content-grid">
+                <div class="account-section">
+                    <div class="account-section-header">
+                        <i class="fas fa-box-open"></i>
+                        <h4 data-i18n="orderHistory">Order History</h4>
+                    </div>
+                    <div id="order-history-items" class="account-section-content"></div>
+                </div>
+                <div class="account-section">
+                    <div class="account-section-header">
+                        <i class="fas fa-ticket-alt"></i>
+                        <h4 data-i18n="coupons">Coupons</h4>
+                    </div>
+                    <div id="available-coupons-list" class="account-section-content"></div>
+                </div>
+            </div>
+
+            <div class="account-modal-footer">
+                <button id="logout-btn" class="account-logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> <span data-i18n="logout">Logout</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Session History Panel -->
+    <div id="history-panel" class="history-panel">
+        <div class="history-header">
+            <h3 data-i18n="recentlyViewed">Recently Viewed</h3>
+            <button class="close-history">&times;</button>
+        </div>
+        <div class="history-content" id="history-products">
+            <p class="history-empty" data-i18n="emptyHistory">No browsing history yet. Explore our products!</p>
+        </div>
+    </div>
+    <div id="history-overlay" class="history-overlay"></div>
+
+    <!-- Language Modal -->
+    <div id="language-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Select Language</h2>
+            <div class="language-options">
+                <button type="button" class="lang-btn active" data-lang="en">English</button>
+                <button type="button" class="lang-btn" data-lang="vi">Tiếng Việt</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Support Modal -->
+    <div id="support-modal" class="modal-overlay hidden">
+        <div class="modal-content info-modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Support</h2>
+            <div class="info-modal-body">
+                <p><strong>Customer Service</strong></p>
+                <p>Email: support@aetherforge.com</p>
+                <p>Phone: 1-800-ÆTHER (1-800-284-8437)</p>
+                <p>Hours: Mon–Fri 9AM–6PM, Sat 10AM–4PM</p>
+                <hr>
+                <p><strong>Order Support</strong></p>
+                <p>Track orders, returns, and shipping inquiries.</p>
+                <p><a href="mailto:orders@aetherforge.com">orders@aetherforge.com</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Currency Modal -->
+    <div id="currency-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Currency</h2>
+            <div class="currency-options">
+                <button type="button" class="currency-btn active" data-currency="USD">USD ($)</button>
+                <button type="button" class="currency-btn" data-currency="VND">VND (₫)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="modal-overlay hidden">
+        <div class="modal-content info-modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Privacy Policy</h2>
+            <div class="info-modal-body">
+                <p><strong>Last updated: 2026</strong></p>
+                <p>ÆTHER FORGE respects your privacy. We collect information you provide when creating an account,
+                    placing orders, or contacting support.</p>
+                <p><strong>Data We Collect:</strong> Name, email, shipping address, payment information (processed
+                    securely).</p>
+                <p><strong>How We Use It:</strong> To process orders, improve our services, and communicate with you.
+                </p>
+                <p><strong>Your Rights:</strong> You may request access, correction, or deletion of your personal data
+                    at any time.</p>
+                <p>For full details, contact privacy@aetherforge.com.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-modal" class="modal-overlay hidden">
+        <div class="modal-content info-modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Terms of Service</h2>
+            <div class="info-modal-body">
+                <p><strong>Last updated: 2026</strong></p>
+                <p>By using ÆTHER FORGE, you agree to these terms.</p>
+                <p><strong>Use of Service:</strong> You must provide accurate information and use the site lawfully.</p>
+                <p><strong>Orders:</strong> All orders are subject to availability. We reserve the right to refuse or
+                    cancel orders.</p>
+                <p><strong>Intellectual Property:</strong> All content on this site is owned by ÆTHER FORGE.</p>
+                <p><strong>Limitation of Liability:</strong> We are not liable for indirect damages arising from use of
+                    our products or services.</p>
+                <p>Questions? Contact legal@aetherforge.com.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shipping Info Modal -->
+    <div id="shipping-modal" class="modal-overlay hidden">
+        <div class="modal-content info-modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Shipping Information</h2>
+            <div class="info-modal-body">
+                <p><strong>Standard Shipping:</strong> 5–7 business days — $9.99</p>
+                <p><strong>Express Shipping:</strong> 2–3 business days — $19.99</p>
+                <p><strong>Free Shipping:</strong> Orders over $299 (within continental US)</p>
+                <hr>
+                <p><strong>International:</strong> Available to select countries. Contact support for rates.</p>
+                <p><strong>Returns:</strong> 30-day return policy for unopened items. Pre-built PCs may have different
+                    terms.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal-overlay hidden">
+        <div class="modal-content checkout-modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Checkout</h2>
+            <div class="checkout-body">
+                <div class="checkout-left-col">
+                    <section class="checkout-section">
+                        <h3>Shipping Address</h3>
+                        <form id="checkout-form" class="checkout-form">
+                            <input type="text" placeholder="Full Name" required>
+                            <input type="email" placeholder="Email" required>
+                            <input type="text" placeholder="Address" required>
+                            <input type="text" placeholder="City" required>
+                            <input type="text" placeholder="State / Province" required>
+                            <input type="text" placeholder="ZIP / Postal Code" required>
+                        </form>
+                    </section>
+                    <section class="checkout-section">
+                        <h3>Shipping Method</h3>
+                        <div class="shipping-options" id="shipping-options">
+                            <label class="shipping-option">
+                                <input type="radio" name="shipping-method" value="standard" checked>
+                                <span class="option-details">
+                                    <span class="option-name">Standard Shipping</span>
+                                    <span class="option-price">$9.99</span>
+                                </span>
+                            </label>
+                            <label class="shipping-option">
+                                <input type="radio" name="shipping-method" value="express">
+                                <span class="option-details">
+                                    <span class="option-name">Express Shipping</span>
+                                    <span class="option-price">$19.99</span>
+                                </span>
+                            </label>
+                            <label class="shipping-option">
+                                <input type="radio" name="shipping-method" value="international">
+                                <span class="option-details">
+                                    <span class="option-name">International Shipping</span>
+                                    <span class="option-price">$39.99</span>
+                                </span>
+                            </label>
+                        </div>
+                    </section>
+                </div>
+                <div class="checkout-right-col">
+                    <section class="checkout-section">
+                        <h3 data-i18n="haveCoupon">Have a coupon?</h3>
+                        <div class="coupon-container">
+                            <div class="coupon-input-group">
+                                <input type="text" id="coupon-input" data-i18n-placeholder="couponPlaceholder"
+                                    placeholder="Enter code">
+                                <button id="apply-coupon-btn" class="btn-secondary" data-i18n="apply">Apply</button>
+                            </div>
+                            <div id="applied-coupon-container" class="applied-coupon-container hidden">
+                                <!-- Filled by JS -->
+                            </div>
+                        </div>
+                    </section>
+                    <section class="checkout-section summary-section">
+                        <h3>Order Summary</h3>
+                        <div id="checkout-summary" class="checkout-summary">
+                            <!-- Filled by JS -->
+                        </div>
+                        <div class="checkout-summary-row shipping-row">
+                            <span>Shipping</span>
+                            <span id="checkout-shipping-price">$0.00</span>
+                        </div>
+                        <div class="checkout-total">
+                            <span>Total</span>
+                            <span id="checkout-total-price">$0.00</span>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <button type="submit" form="checkout-form" id="place-order-btn" class="add-to-cart-btn checkout-btn">Place
+                Order</button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         UPCOMING RELEASES SECTION
+         Future Product Launches
+         ════════════════════════════════════════════════════════════════════ -->
+    <section id="upcoming-section" class="upcoming-releases">
+        <div class="container upcoming-layout-container">
+            <h2 class="section-title" data-i18n="upcomingReleases">Upcoming Releases</h2>
+
+            <div class="sidebar-layout-axis">
+                <!-- PHANTOM SIDEBAR: Ensures vertical column alignment with the main grid -->
+                <div class="upcoming-spacer"></div>
+
+                <div class="product-grid-wrapper">
+                    <div id="upcoming-grid" class="product-grid">
+                        <!-- Upcoming products will be injected here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         FOOTER SECTION
+         Company Info · Quick Links · Social Media · Payment Icons
+         ════════════════════════════════════════════════════════════════════ -->
+    <footer id="footer" class="site-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>ÆTHER</h3>
+                <p data-i18n="footerDesc">Your one-stop shop for high-performance PC hardware, delivering cutting-edge
+                    components for the ultimate custom build.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li> <a href="#" class="footer-link" data-modal="privacy-modal" data-i18n="privacyPolicy">Privacy
+                            Policy</a></li>
+                    <li><a href="#" class="footer-link" data-modal="terms-modal" data-i18n="termsOfService">Terms of
+                            Service</a></li>
+                    <li><a href="#" class="footer-link" data-modal="shipping-modal" data-i18n="shippingInfo">Shipping
+                            Info</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com" target="_blank" rel="noopener" aria-label="X"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i
+                            class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <p data-i18n="rightsReserved">© 2026 ÆTHER FORGE. All Rights Reserved.</p>
+            <div class="payment-icons">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-paypal"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+    <!-- Notification Container -->
+    <div id="notification-container"></div>
+
+    <!-- [SECTION] Information Modals -->
+
+    <!-- Support Modal -->
+    <div id="support-modal" class="modal-overlay hidden">
+        <div class="modal-content info-modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 data-i18n="supportTitle">Support</h2>
+            <div class="info-modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Support Modal -->
+    <div id="support-modal" class="modal-overlay hidden">
+        <div class="modal-content info-modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 data-i18n="support">Support</h2>
+            <div class="info-modal-body">
+                <h3>Contact Us</h3>
+                <p><strong>Email:</strong> support@aetherforge.com</p>
+                <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                <p><strong>Hours:</strong> Mon-Fri, 9AM-6PM EST</p>
+
+                <h3>FAQ</h3>
+                <p><strong>Q: How do I track my order?</strong><br>
+                    A: Once your order ships, you'll receive a tracking number via email.</p>
+
+                <p><strong>Q: What is your return policy?</strong><br>
+                    A: We accept returns within 30 days of purchase for a full refund.</p>
+
+                <p><strong>Q: Do you offer technical support?</strong><br>
+                    A: Yes! Our technical team is available to help with product setup and troubleshooting.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Language Modal -->
+    <div id="language-modal" class="modal-overlay hidden">
+        <div class="modal-content select-modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 data-i18n="selectLanguage">Select Language</h2>
+            <div class="language-options">
+                <button class="lang-btn" data-lang="en">English</button>
+                <button class="lang-btn" data-lang="vi">Tiếng Việt</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Currency Modal -->
+    <div id="currency-modal" class="modal-overlay hidden">
+        <div class="modal-content select-modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 data-i18n="selectCurrency">Currency</h2>
+            <div class="currency-options">
+                <button class="currency-btn" data-currency="USD">USD ($)</button>
+                <button class="currency-btn" data-currency="VND">VND (₫)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="modal-overlay hidden">
+        <div class="modal-content info-modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 data-i18n="privacyPolicy">Privacy Policy</h2>
+            <div class="info-modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div id="terms-modal" class="modal-overlay hidden">
+        <div class="modal-content info-modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 data-i18n="termsOfService">Terms of Service</h2>
+            <div class="info-modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Shipping Modal -->
+    <div id="shipping-modal" class="modal-overlay hidden">
+        <div class="modal-content info-modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 data-i18n="shippingInfo">Shipping Info</h2>
+            <div class="info-modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Main Application Script -->
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>

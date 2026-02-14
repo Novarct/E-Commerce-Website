@@ -1,0 +1,300 @@
+﻿/* Hero Section */
+.hero-section {
+    background: var(--hero-bg-gradient);
+    color: var(--hero-text-color);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0.4rem 1rem var(--shadow-color);
+}
+
+.flash-sale-bar {
+    background-color: var(--accent-primary);
+    color: var(--color-white);
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    min-height: 30rem;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s;
+}
+
+.hero-slide.active {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+}
+
+.hero-content {
+    padding: 4rem 1rem;
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -0.1rem;
+    text-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(3rem);
+    color: var(--hero-text-color);
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: var(--hero-text-color);
+    opacity: 0;
+    transform: translateY(2rem);
+}
+
+.hero-btn {
+    background-color: var(--accent-primary);
+    color: var(--color-white);
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0.4rem 1.5rem rgba(0, 123, 255, 0.4);
+    opacity: 0;
+    transform: translateY(1.5rem);
+}
+
+.hero-btn:hover {
+    background-color: var(--accent-primary-hover);
+    box-shadow: 0 0 2rem rgba(0, 123, 255, 0.8);
+    transform: translateY(-0.2rem) scale(1.05);
+}
+
+/* Hero Animations */
+.hero-slide.active .hero-content h1 {
+    animation: slideInUp 0.8s forwards 0.3s;
+}
+
+.hero-slide.active .hero-content p {
+    animation: slideInUp 0.8s forwards 0.5s;
+}
+
+.hero-slide.active .hero-btn {
+    animation: slideInUp 0.8s forwards 0.7s;
+}
+
+/* Hero Controls */
+.hero-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: 0.2rem solid rgba(255, 255, 255, 0.5);
+    color: white;
+    font-size: 3rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.hero-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-50%) scale(1.1);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-nav-btn.prev {
+    left: 2rem;
+}
+
+.hero-nav-btn.next {
+    right: 2rem;
+}
+
+.hero-indicators {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 10;
+}
+
+.indicator {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 0.2rem solid transparent;
+}
+
+.indicator.active {
+    background: white;
+    transform: scale(1.3);
+    box-shadow: 0 0 1rem rgba(255, 255, 255, 0.6);
+}
+
+/* Brand Trust Bar */
+.brand-trust-bar {
+    background-color: var(--bg-surface-secondary);
+    padding: 1.5rem 0;
+    border-bottom: 0.1rem solid var(--border-color);
+}
+
+.brand-trust-bar .container {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+}
+
+.brand-trust-bar h4 {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1rem;
+    font-weight: 700;
+}
+
+.brand-logos {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    align-items: center;
+}
+
+.brand-logos img {
+    height: 3rem;
+}
+
+/* Main Content Area */
+.main-content-area {
+    display: flex;
+    flex-direction: column;
+    /* COLUMN BASIS: For top-left header */
+    width: 95%;
+    max-width: 145rem;
+    padding: 0 4rem;
+    margin: 2rem auto;
+    gap: 0;
+}
+
+.sidebar-layout-axis {
+    display: flex;
+    gap: var(--global-gap);
+    width: 100%;
+}
+
+/* Sidebar */
+.filters-sidebar {
+    width: 28rem;
+    flex-shrink: 0;
+    background: var(--bg-surface);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.1rem 0.3rem var(--shadow-color);
+    align-self: flex-start;
+    border: 0.1rem solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: var(--global-gap);
+    /* STANDARDIZED */
+}
+
+.sort-container {
+    margin-bottom: 0;
+    /* RETAIN: Reliance on sidebar gap for 2.5rem rhythm */
+}
+
+.filters-sidebar h3 {
+    margin-bottom: 3rem;
+    /* FILTER RHYTHM: 3rem header margin */
+    padding-bottom: 0.8rem;
+    border-bottom: 0.2rem solid var(--accent-primary);
+    width: fit-content;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.brand-filters {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--global-gap);
+    /* FILTER RHYTHM: 2.0rem item gap */
+}
+
+.brand-filters label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    font-size: 1.5rem;
+    color: var(--text-main);
+    padding: 0.6rem 0;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.brand-filters label:hover {
+    color: var(--accent-primary);
+    padding-left: 0.5rem;
+}
+
+/* Custom Checkbox Support */
+.brand-filters input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 2rem;
+    height: 2rem;
+    border: 0.2rem solid var(--border-color);
+    border-radius: 0.4rem;
+    background: var(--bg-surface);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.brand-filters input[type="checkbox"]:checked {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+.brand-filters input[type="checkbox"]:checked::after {
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 1rem;
+    color: white;

@@ -1,0 +1,167 @@
+/* ══════════════════════════════════════════════════════════════════════════════
+   CART PANEL STYLES
+   Cart-specific panel styles and components
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* Cart Panel Positioning (Right Slide) */
+.cart-panel {
+    right: 0;
+    transform: translateX(100%);
+    border-left: 1px solid var(--glass-border);
+    box-shadow: -0.625rem 0 1.875rem rgba(0, 0, 0, 0.1);
+}
+
+.cart-panel.show {
+    transform: translateX(0);
+}
+
+/* Quantity Control Styles */
+.utility-card__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.utility-card__quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 0.2rem;
+    width: fit-content;
+    height: 2.8rem;
+}
+
+.utility-card__qty-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.utility-card__qty-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.utility-card__qty-btn,
+.utility-card__qty-btn:active,
+.utility-card__qty-btn:focus {
+    transform: none !important;
+    transition: background-color 0.2s !important;
+}
+
+.utility-card__quantity-control button,
+.utility-card__quantity-control button:active,
+.utility-card__quantity-control button:focus {
+    transform: none !important;
+}
+
+.utility-card__qty-input {
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    text-align: center;
+    font-family: var(--font-family-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    width: 2rem;
+    outline: none;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.utility-card__qty-input::-webkit-outer-spin-button,
+.utility-card__qty-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.utility-card__line-total {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* Mini-Cart Tooltip */
+.mini-cart-tooltip {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 22rem;
+    background: var(--bg-surface);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
+    border-radius: 0.75rem;
+    padding: 1.2rem;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(1rem);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid var(--border-color);
+}
+
+.mini-cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.mini-cart-item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.mini-cart-item img {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+    border-radius: 0.25rem;
+    background: #f8f9fa;
+}
+
+.mini-cart-item p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 11.25rem;
+}
+
+.mini-cart-item span {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+.more-items {
+    font-size: 1rem;
+    color: var(--accent-primary);
+    text-align: center;
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
+/* Empty State Polish */
+.mini-cart-tooltip:empty::after,
+.mini-cart-items:empty::after {
+    content: "Your cart is currently empty.";
+    display: block;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.4;
+    padding: 0.5rem 0;
+    font-weight: 500;
+}

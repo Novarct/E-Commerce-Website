@@ -1,0 +1,31 @@
+/* ══════════════════════════════════════════════════════════════════════════════
+   PHASE 5: CSS MODULARIZATION - COMPLETE
+   Import Orchestrator - Controls load order for proper cascade
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* Foundation Layer - Must load first */
+@import './variables.css';
+@import './z-index.css';
+@import './base.css';
+
+/* Layout Layer */
+@import './layout.css';
+
+/* Component Layer - Order matters for specificity */
+@import './components/navbar.css';
+@import './components/buttons.css';
+@import './components/cards.css';
+@import './components/hero.css';
+@import './components/modals.css';
+@import './components/info-modals.css';
+@import './components/account.css';
+@import './components/panel-shared.css';
+@import './components/cart-panel.css';
+@import './components/wishlist-panel.css';
+@import './components/history-panel.css';
+@import './components/checkout-panel.css';
+@import './components/forms.css';
+@import './components/trading-shop.css';
+
+/* Utilities & Animations - Load last */
+@import './animations.css';

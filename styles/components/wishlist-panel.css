@@ -1,0 +1,44 @@
+/* ══════════════════════════════════════════════════════════════════════════════
+   WISHLIST PANEL STYLES
+   Wishlist-specific panel styles and components
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* Wishlist Panel Positioning (Left Slide) */
+.wishlist-panel {
+    left: 0;
+    transform: translateX(-100%);
+    border-right: 1px solid var(--glass-border);
+    box-shadow: 0.625rem 0 1.875rem rgba(0, 0, 0, 0.1);
+}
+
+.wishlist-panel.show {
+    transform: translateX(0);
+}
+
+/* Wishlist Section Headers */
+.wishlist-section {
+    margin-bottom: 2rem;
+    flex: 1;
+    /* Equal space distribution */
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    /* Allow flex shrinking */
+}
+
+.wishlist-section h4 {
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+}
+
+.wishlist-products {
+    flex: 1;
+    /* Take remaining space */
+    overflow-y: auto;
+    /* Scroll if content overflows */
+}
