@@ -100,30 +100,33 @@ export const updateWishlistUI = () => {
 export const toggleWishlist = (productId, btn) => {
     const isInWishlist = state.wishlist.some(w => w.id === productId);
 
+    let result;
     if (btn && btn.classList.contains('add-to-wishlist-btn')) {
         if (isInWishlist) {
             return;
         }
-        WishlistService.addToWishlist(productId);
+        result = WishlistService.addToWishlist(productId);
     } else {
-        WishlistService.toggleWishlist(productId);
+        result = WishlistService.toggleWishlist(productId);
     }
 
-    updateWishlistUI();
-    applyAllFilters();
+    if (result !== undefined) {
+        updateWishlistUI();
+        applyAllFilters();
 
-    const message = t('addedToWishlist') || 'Added to wishlist';
-    NotificationSystem.showToast(message, 'success');
+        const message = t('addedToWishlist') || 'Added to wishlist';
+        NotificationSystem.showToast(message, 'success');
 
-    Logger.log('UI', `💙 Added to wishlist: ${productId}`);
+        Logger.log('UI', `💙 Added to wishlist: ${productId}`);
 
-    const wishlistIcon = wishlistLinkEl.querySelector('i');
-    NotificationSystem.triggerSparkle(wishlistIcon);
+        const wishlistIcon = wishlistLinkEl.querySelector('i');
+        NotificationSystem.triggerSparkle(wishlistIcon);
 
-    if (btn && btn.classList.contains('add-to-wishlist-btn')) {
-        btn.textContent = t('added');
-        btn.classList.add('active');
-        btn.disabled = true;
+        if (btn && btn.classList.contains('add-to-wishlist-btn')) {
+            btn.textContent = t('added');
+            btn.classList.add('active');
+            btn.disabled = true;
+        }
     }
 };
 
