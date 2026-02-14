@@ -110,7 +110,7 @@ export const toggleWishlist = (productId, btn) => {
         result = WishlistService.toggleWishlist(productId);
     }
 
-    if (result !== undefined) {
+    if (result !== null) {
         updateWishlistUI();
         applyAllFilters();
 
