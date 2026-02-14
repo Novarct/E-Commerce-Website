@@ -14,13 +14,14 @@ import { applyAllFilters } from './search-filter.js';
 export const toggleFavorites = (productId) => {
     const added = WishlistService.toggleFavorites(productId);
 
-    import('./wishlist-panel.js').then(({ updateWishlistUI }) => updateWishlistUI());
+    if (added !== undefined) {
+        import('./wishlist-panel.js').then(({ updateWishlistUI }) => updateWishlistUI());
+        applyAllFilters();
 
-    applyAllFilters();
-
-    if (!added) {
-        NotificationSystem.showToast(t('removedFromFavorites'), 'info');
-    } else {
-        NotificationSystem.showToast(t('addedToFavorites') || 'Added to favorites', 'success');
+        if (!added) {
+            NotificationSystem.showToast(t('removedFromFavorites'), 'info');
+        } else {
+            NotificationSystem.showToast(t('addedToFavorites') || 'Added to favorites', 'success');
+        }
     }
 };
