@@ -1,0 +1,175 @@
+/* ========================================= */
+/* ÆTHER POINTS & SHOP STYLES               */
+/* ========================================= */
+
+/* Points Badge in Account Panel */
+.aether-points-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.15));
+    border: 0.1rem solid var(--accent-primary);
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    margin-top: 1rem;
+    color: var(--accent-primary);
+    font-weight: 700;
+    font-size: 1.4rem;
+    box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.1);
+}
+
+.aether-points-badge i.fa-star {
+    color: #fbbf24;
+}
+
+.exchange-points-btn {
+    background: none;
+    border: none;
+    color: var(--accent-primary);
+    cursor: pointer;
+    margin-left: 0.5rem;
+    padding: 0.2rem;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.exchange-points-btn:hover {
+    transform: rotate(180deg);
+    color: var(--accent-secondary);
+}
+
+/* Username Editing */
+.account-username {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.edit-username-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1.4rem;
+    padding: 0.4rem;
+    border-radius: 0.4rem;
+    transition: all 0.2s ease;
+}
+
+.edit-username-btn:hover {
+    color: var(--accent-primary);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+/* Trading Shop Modal */
+.trading-shop-content {
+    max-width: 55rem !important;
+    background: var(--bg-surface) !important;
+}
+
+.shop-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.shop-header h2 {
+    font-size: 2.8rem;
+    background: linear-gradient(135deg, #3b82f6, #9333ea);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.user-balance-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--bg-surface-secondary);
+    border-radius: 1.25rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.shop-balance-value {
+    color: var(--accent-primary);
+}
+
+.shop-items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1.5rem;
+}
+
+.shop-item-card {
+    background: var(--bg-surface-secondary);
+    border: 0.1rem solid var(--border-color);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.shop-item-card:hover:not(.locked) {
+    border-color: var(--accent-primary);
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.2);
+}
+
+.shop-item-card.locked {
+    opacity: 0.6;
+    filter: grayscale(0.5);
+}
+
+.item-icon {
+    font-size: 3rem;
+    color: var(--accent-primary);
+    height: 6rem;
+    width: 6rem;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.item-name {
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+}
+
+.item-cost {
+    color: var(--text-muted);
+    font-size: 1.4rem;
+}
+
+.redeem-btn {
+    margin-top: auto;
+    background: var(--accent-primary);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.redeem-btn:hover:not(:disabled) {
+    background: var(--accent-secondary);
+    transform: scale(1.02);
+}
+
+.redeem-btn:disabled {
+    background: var(--bg-body);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}

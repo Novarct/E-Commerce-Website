@@ -1,0 +1,422 @@
+﻿.main-content-area {
+    display: flex;
+    flex-direction: column;
+    /* COLUMN BASIS: For top-left header */
+    width: 95%;
+    max-width: 145rem;
+    padding: 0 4rem;
+    margin: 2rem auto;
+    gap: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.sidebar-layout-axis {
+    display: flex;
+    gap: var(--global-gap);
+    width: 100%;
+}
+
+/* Sidebar */
+.filters-sidebar {
+    width: 28rem;
+    flex-shrink: 0;
+    background: var(--bg-surface);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.1rem 0.3rem var(--shadow-color);
+    align-self: flex-start;
+    border: 0.1rem solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: var(--global-gap);
+    /* STANDARDIZED */
+}
+
+.sort-container {
+    margin-bottom: 0;
+    /* RETAIN: Reliance on sidebar gap for 2.5rem rhythm */
+}
+
+.filters-sidebar h3 {
+    margin-bottom: 3rem;
+    /* FILTER RHYTHM: 3rem header margin */
+    padding-bottom: 0.8rem;
+    border-bottom: 0.2rem solid var(--accent-primary);
+    width: fit-content;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.brand-filters {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--global-gap);
+    /* FILTER RHYTHM: 2.0rem item gap */
+}
+
+.brand-filters label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    font-size: 1.5rem;
+    color: var(--text-main);
+    padding: 0.6rem 0;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.brand-filters label:hover {
+    color: var(--accent-primary);
+    padding-left: 0.5rem;
+}
+
+/* Custom Checkbox Support */
+.brand-filters input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 2rem;
+    height: 2rem;
+    border: 0.2rem solid var(--border-color);
+    border-radius: 0.4rem;
+    background: var(--bg-surface);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.brand-filters input[type="checkbox"]:checked {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+.brand-filters input[type="checkbox"]:checked::after {
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 1rem;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.brand-filters input[type="checkbox"]:hover {
+    border-color: var(--accent-primary);
+}
+
+.mobile-filter-btn {
+    display: none;
+    margin-bottom: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 0.5rem;
+    color: var(--text-main);
+    font-weight: 600;
+    cursor: pointer;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    justify-content: center;
+    box-shadow: 0 0.125rem 0.313rem rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 48rem) {
+    .mobile-filter-btn {
+        display: flex;
+    }
+
+    .filters-sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        height: 100%;
+        background: var(--bg-surface);
+        z-index: 1005;
+        padding: 2rem;
+        overflow-y: auto;
+        transition: left 0.3s ease-in-out;
+        box-shadow: 0.625rem 0 1.875rem rgba(0, 0, 0, 0.2);
+    }
+
+    .filters-sidebar.show {
+        left: 0;
+    }
+
+    .filters-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1004;
+    }
+
+    .filters-overlay.show {
+        display: block;
+    }
+}
+
+/* Shared Section Components */
+.section-title {
+    width: 100%;
+    text-align: left;
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    margin: 0;
+    margin-bottom: 1.2rem;
+    /* TIGHTENED: Better proximity to content */
+}
+
+/* Upcoming Releases Section */
+.upcoming-releases {
+    padding: 5rem 0;
+    background-color: var(--bg-body);
+    border-top: 0.1rem solid var(--border-color);
+    margin-top: 5rem;
+    /* TIGHTENED: Better section rhythm */
+    transition: background-color 0.4s ease-in-out;
+}
+
+.upcoming-releases .upcoming-layout-container {
+    display: flex;
+    flex-direction: column;
+    /* COLUMN BASIS: For top-left header */
+    width: 95%;
+    max-width: 145rem;
+    padding: 0 4rem;
+    margin: 0 auto;
+    gap: 0;
+}
+
+.upcoming-spacer {
+    width: 28rem;
+    /* MATCH: .filters-sidebar width */
+    flex-shrink: 0;
+}
+
+/* Specific Section Adjustments if needed */
+
+@media (max-width: 68.75rem) {
+    .upcoming-spacer {
+        display: none;
+    }
+
+    .upcoming-releases .upcoming-layout-container {
+        padding: 0 2rem;
+    }
+}
+
+
+/* Footer */
+.site-footer {
+    background-color: var(--bg-surface);
+    color: var(--text-muted);
+    padding: 3rem 0 0;
+    margin-top: 3rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-container {
+    width: 90%;
+    max-width: 120rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2rem;
+    padding-bottom: 3rem;
+}
+
+.footer-column h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+}
+
+.footer-column h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+}
+
+.footer-column p {
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-column ul a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-column ul a:hover {
+    color: var(--accent-primary);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    transition: color 0.2s;
+}
+
+.social-icons a:hover {
+    color: var(--accent-primary);
+}
+
+/* Cart Footer */
+.cart-footer {
+    padding: 2rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-surface);
+    flex-shrink: 0;
+}
+
+.cart-subtotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1.2rem;
+    background: var(--bg-surface-secondary);
+    border-radius: 0.6rem;
+}
+
+.cart-subtotal span:first-child {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+}
+
+.cart-subtotal span:last-child {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+}
+
+.footer-bottom-bar {
+    border-top: 0.1rem solid var(--border-color);
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 120rem;
+    margin: 0 auto;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.payment-icons {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.8rem;
+}
+
+/* Load More */
+.load-more-container {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   SECTION IV: MODALS & OVERLAYS
+   Interface Overlays · Visual FX · Panel Systems
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* --- INTERFACE OVERLAYS ---
+   This section contains all modal dialogs and slide-out panels:
+   
+   MODALS (Center-screen):
+   → Login/Signup Modal (#auth-modal)
+   → Profile Modal (#account)
+   → Quick View Modal (#quick-view-modal)
+   → Language/Currency/Support Modals
+   → Privacy/Terms/Shipping Info Modals
+   → Checkout Modal (#checkout-modal)
+   
+   PANELS (Slide-in from edges):
+   → Cart Panel (Right slide, .cart-panel)
+   → Wishlist Panel (Left slide, .wishlist-panel)
+   → History Panel (Right slide, .history-panel)
+*/
+
+/* --- VISUAL FX ---
+   Glassmorphism effects, backdrop blur, z-index hierarchy, and transitions
+   applied consistently across all overlay components
+*/
+
+/* ==========================================================================
+   MODAL & PANELS SYSTEM
+   ========================================================================== */
+
+/* Unified Overlays */
+.modal-overlay,
+.cart-overlay,
+.wishlist-overlay,
+.history-overlay {
+    transform: translateZ(0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: var(--z-overlay);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}

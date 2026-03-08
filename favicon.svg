@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <!-- Dark Background -->
+    <rect width="512" height="512" rx="100" fill="#0f172a"/>
+    
+    <!-- White Star Icon -->
+    <g transform="translate(256, 256) scale(0.8)">
+        <!-- Main Star Shape constructed from two curved overlapping elements -->
+        <path d="M0 -200 C50 -50 50 -50 200 0 C50 50 50 50 0 200 C-50 50 -50 50 -200 0 C-50 -50 -50 -50 0 -200 Z" fill="#f8fafc"/>
+    </g>
+</svg>

@@ -1,0 +1,120 @@
+/* ══════════════════════════════════════════════════════════════════════════════
+   CSS VARIABLES & THEME SYSTEM
+   Color Primitives · Semantic Tokens · Dark Mode · Transitions
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* --- VARIABLE SYSTEM --- */
+:root {
+    /* Primitives */
+    --color-charcoal: #212121;
+    --color-deep-black: #121212;
+    --color-surface-dark: #1e1e1e;
+    --color-electric-blue: #3b82f6;
+    --color-electric-blue-dark: #2563eb;
+    --color-white: #ffffff;
+    --color-light-gray: #f8f9fa;
+    --color-medium-gray: #dee2e6;
+    --color-dark-gray: #6c757d;
+    --color-slate-gray: #94a3b8;
+    --color-dark-border: #2d2d2d;
+    --color-danger: #ef4444;
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+
+    /* Semantic Tokens (Light Mode - Default) */
+    --bg-body: var(--color-light-gray);
+    --bg-surface: var(--color-white);
+    --bg-surface-secondary: #f1f3f5;
+    --text-main: var(--color-charcoal);
+    --text-muted: var(--color-dark-gray);
+    --text-inverse: var(--color-white);
+    --border-color: var(--color-medium-gray);
+    --shadow-color: rgba(0, 0, 0, 0.05);
+
+    --accent-primary: var(--color-electric-blue);
+    --accent-primary-hover: var(--color-electric-blue-dark);
+    --accent-secondary: #3b82f6; /* Darker blue for hover states */
+    --hero-bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #ddd6fe 100%);
+    --hero-text-color: var(--color-charcoal);
+
+    /* Glassmorphism Tokens */
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --glass-shadow: 0 0.5rem 2rem 0 rgba(31, 38, 135, 0.05);
+
+    /* Transitions */
+    --transition-standard: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-snappy: 0.2s ease-out;
+
+    /* Architectural Spacing */
+    --global-gap: 2.0rem;
+
+    /* Shadow System */
+    --shadow-sm: 0 0.2rem 0.5rem var(--shadow-color);
+    --shadow-md: 0 0.4rem 1rem var(--shadow-color);
+    --shadow-lg: 0 1rem 2rem var(--shadow-color);
+    --shadow-xl: 0 2.5rem 5rem var(--shadow-color);
+
+    /* Blur System */
+    --blur-light: blur(0.2rem);
+    --blur-medium: blur(0.4rem);
+    --blur-heavy: blur(1.25rem);
+
+    /* Z-Index Scale */
+    --z-base: 1;
+    --z-dropdown: 100;
+    --z-sticky: 500;
+    --z-navbar: 1000;
+    --z-overlay: 5000;
+    --z-modal: 6000;
+    --z-panel: 7000;
+    --z-tooltip: 8000;
+    --z-notification: 9000;
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] {
+    --bg-body: var(--color-deep-black);
+    --bg-surface: var(--color-surface-dark);
+    --bg-surface-secondary: #252525;
+    --text-main: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --text-inverse: var(--color-deep-black);
+    --border-color: var(--color-dark-border);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --accent-primary: #60a5fa;
+    --accent-primary-hover: #3b82f6;
+    --accent-secondary: #2563eb; /* Even darker blue for dark mode hover */
+    --hero-bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    --hero-text-color: #f8fafc;
+    --glass-bg: rgba(30, 30, 30, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shadow: 0 0.5rem 2rem 0 rgba(0, 0, 0, 0.5);
+
+    /* Specific Dark Mode overrides for HSL consistency */
+    --charcoal: #f8fafc;
+    --white: #0f172a;
+    --light-gray: #020617;
+    --medium-gray: #1e293b;
+    --dark-gray: #94a3b8;
+}
+
+/* Auto-switch fallback */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --bg-body: var(--color-deep-black);
+        --bg-surface: var(--color-surface-dark);
+        --bg-surface-secondary: #252525;
+        --text-main: #e0e0e0;
+        --text-muted: #a0a0a0;
+        --text-inverse: var(--color-deep-black);
+        --border-color: var(--color-dark-border);
+        --shadow-color: rgba(0, 0, 0, 0.4);
+        --accent-primary: #60a5fa;
+        --hero-bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+        --hero-text-color: #f8fafc;
+        --glass-bg: rgba(30, 30, 30, 0.85);
+        --glass-border: rgba(255, 255, 255, 0.08);
+        --glass-shadow: 0 0.5rem 2rem 0 rgba(0, 0, 0, 0.5);
+    }
+}
